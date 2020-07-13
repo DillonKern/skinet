@@ -32,7 +32,7 @@ namespace Infrastructure.Data
                 if (!context.ProductTypes.Any())
                 {
                     var typesData =
-                        File.ReadAllText("../Infrastructure/Data/SeedData/typ.json");
+                        File.ReadAllText("../Infrastructure/Data/SeedData/types.json");
 
                     var types = JsonSerializer.Deserialize<List<ProductType>>(typesData);
 
