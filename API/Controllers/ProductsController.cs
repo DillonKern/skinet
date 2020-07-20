@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Core.Entities;
 using Core.Interfaces;
@@ -17,7 +18,6 @@ namespace API.Controllers
         public ProductsController(IProductRepository repo)
         {
             _repo = repo;
-
         }
 
         [HttpGet]
@@ -39,8 +39,9 @@ namespace API.Controllers
         {
             return Ok(await _repo.GetProductBrandsAsync());
         }
+
         [HttpGet("types")]
-        public async Task<ActionResult<IReadOnlyList<ProductBrand>>> GetProductTypes()
+        public async Task<ActionResult<IReadOnlyList<ProductType>>> GetProductTypes()
         {
             return Ok(await _repo.GetProductTypesAsync());
         }

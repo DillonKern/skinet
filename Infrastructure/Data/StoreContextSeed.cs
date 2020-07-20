@@ -29,6 +29,7 @@ namespace Infrastructure.Data
 
                     await context.SaveChangesAsync();
                 }
+
                 if (!context.ProductTypes.Any())
                 {
                     var typesData =
@@ -43,10 +44,11 @@ namespace Infrastructure.Data
 
                     await context.SaveChangesAsync();
                 }
+
                 if (!context.Products.Any())
                 {
                     var productsData =
-                        File.ReadAllText("../Infrastructure/Data/SeedData/brands.json");
+                        File.ReadAllText("../Infrastructure/Data/SeedData/products.json");
 
                     var products = JsonSerializer.Deserialize<List<Product>>(productsData);
 
@@ -63,7 +65,6 @@ namespace Infrastructure.Data
                 var logger = loggerFactory.CreateLogger<StoreContextSeed>();
                 logger.LogError(ex.Message);
             }
-
         }
     }
 }
